@@ -10,8 +10,8 @@ public class GildedRoseTest {
     @Test
     public void testInit() {
 
-        Item[] items = new Item[]{
-                new Item("lkjhgfdeswa", 5, 7),
+        GRItem[] items = new GRItem[]{
+                new NormalItem("lkjhgfdeswa", 5, 7),
         };
 
         GildedRose app = new GildedRose(items);
@@ -25,16 +25,16 @@ public class GildedRoseTest {
     // when
     // !Ages Brie && !Backstage && Quality > 0 && !Sulfuras
 
-        Item[] items = new Item[] {
-                new Item("Elixir of the Mongoose", 5, 7)
+        GRItem[] items = new GRItem[] {
+                new NormalItem("Elixir of the Mongoose", 5, 7)
         };
 
         GildedRose app = new GildedRose(items);
 
-        Item[] appItems = app.items;
+        GRItem[] appItems = app.items;
 
         app.updateQuality();
-        Item firstItem = appItems[0];
+        NormalItem firstItem = (NormalItem) appItems[0];
 
         assertThat(firstItem.quality, is(6));
     }
