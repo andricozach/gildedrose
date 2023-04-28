@@ -1,15 +1,15 @@
 package com.gildedrose;
 
-public class NormalItem extends Item implements GRItem {
+public class ConjuredItem extends Item implements GRItem {
 
-    public NormalItem(String name, int sellIn, int quality) {
+    public ConjuredItem(String name, int sellIn, int quality) {
         super(name, sellIn, quality);
     }
 
     @Override
     public void update() {
         if (super.quality > 0) {
-            super.quality -= 1;
+            super.quality -= 2;
         }
         super.sellIn -= 1;
         if (super.sellIn < 0) {
@@ -19,4 +19,3 @@ public class NormalItem extends Item implements GRItem {
         }
     }
 }
-
