@@ -10,11 +10,20 @@ class GildedRose {
     public void updateQuality() {
 
         for (Item item : items) {
+
             boolean isAgedBrie, isBackStagePass, isSulfuras;
 
-            if (item.name.equals("Aged Brie")) { isAgedBrie = true; }
-            if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) { isBackStagePass = true; };
-            if (item.name.equals("Sulfuras, Hand of Ragnaros")) { isSulfuras = true; };
+            switch (item.name) {
+                case "Aged Brie":
+                    isAgedBrie = true;
+                    break;
+                case "Backstage passes to a TAFKAL80ETC concert":
+                    isBackStagePass = true;
+                    break;
+                case "Sulfuras, Hand of Ragnaros":
+                    isSulfuras = true;
+                    break;
+            }
 
             if (!item.name.equals("Aged Brie")
                     && !item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
