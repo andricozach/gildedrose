@@ -11,7 +11,7 @@ class GildedRose {
 
         for (Item item : items) {
 
-            boolean isAgedBrie, isBackStagePass, isSulfuras;
+            boolean isAgedBrie = false, isBackStagePass = false, isSulfuras = false;
 
             switch (item.name) {
                 case "Aged Brie":
@@ -25,10 +25,9 @@ class GildedRose {
                     break;
             }
 
-            if (!item.name.equals("Aged Brie")
-                    && !item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            if (!isAgedBrie && !isBackStagePass) {
                 if (item.quality > 0) {
-                    if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                    if (!isSulfuras) {
                         item.quality -= 1;
                     }
                 }
@@ -36,7 +35,7 @@ class GildedRose {
                 if (item.quality < 50) {
                     item.quality += 1;
 
-                    if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                    if (isBackStagePass) {
                         if (item.sellIn < 11) {
                             if (item.quality < 50) item.quality += 1;
                         }
@@ -50,15 +49,15 @@ class GildedRose {
                 }
             }
 
-            if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+            if (!isSulfuras) {
                 item.sellIn -= 1;
             }
 
             if (item.sellIn < 0) {
-                if (!item.name.equals("Aged Brie")) {
-                    if (!item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                if (!isAgedBrie) {
+                    if (!isBackStagePass) {
                         if (item.quality > 0) {
-                            if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                            if (!isSulfuras) {
                                 item.quality -= 1;
                             }
                         }
